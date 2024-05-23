@@ -208,7 +208,7 @@ const TokenEconomics = () => {
       <InfoBox>
         <InfoItem>
           <InfoTitle>Token Supply</InfoTitle>
-          <InfoText>1,000,000</InfoText>
+          <InfoText>1,000,000000</InfoText>
         </InfoItem>
         <InfoItem>
           <InfoTitle>Tax</InfoTitle>
@@ -219,8 +219,9 @@ const TokenEconomics = () => {
           <InfoText>0x55A1F47e7d633646096A0c721ad921cbb83F506B</InfoText>
         </InfoItem>
       </InfoBox>
-      <Button href="https://uniswap.org/">Buy $VSCTMY</Button>
+     
       <Footer>
+      <Button href="https://uniswap.org/">Buy $VSCTMY</Button>
         <FooterText>© 2024 VASECTOMY. All Rights Reserved.</FooterText>
         <FooterText>Follow us on: X, Telegram, Reddit</FooterText>
       </Footer>
