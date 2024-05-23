@@ -1,6 +1,7 @@
 // src/components/TokenEconomics.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import footerImg from '../assets/footer.png'; // Import the actual footer image
 
 // Keyframes for animations
 const fadeIn = keyframes`
@@ -25,14 +26,17 @@ const float = keyframes`
 `;
 
 const TokenEconomicsContainer = styled.div`
-  background: ${({ theme }) => theme.colors.gradient};
+  background: linear-gradient(135deg, #d2b48c 25%, #c3b091 25%, #c3b091 50%, #d2b48c 50%, #d2b48c 75%, #c3b091 75%, #c3b091) 50px 50px,
+              linear-gradient(45deg, #d2b48c 25%, #c3b091 25%, #c3b091 50%, #d2b48c 50%, #d2b48c 75%, #c3b091 75%, #c3b091) 50px 50px,
+              #fff;
+  background-size: 100px 100px;
+  position: relative;
   padding: ${({ theme }) => theme.spacing.xxlarge};
   text-align: center;
-  position: relative;
   overflow: hidden;
   border-top: ${({ theme }) => theme.spacing.large} solid transparent;
-  margin-top: -${({ theme }) => theme.spacing.xxlarge}; /* Adjust offset */
-  padding-top: calc(${({ theme }) => theme.spacing.xxlarge} + ${({ theme }) => theme.spacing.large}); /* Adjust padding to compensate for offset */
+  margin-top: -${({ theme }) => theme.spacing.xxlarge};
+  padding-top: calc(${({ theme }) => theme.spacing.xxlarge} + ${({ theme }) => theme.spacing.large});
 
   &:before {
     content: '';
@@ -49,7 +53,19 @@ const TokenEconomicsContainer = styled.div`
 
   @media (min-width: 768px) {
     padding: ${({ theme }) => theme.spacing.xxlarge} ${({ theme }) => theme.spacing.xlarge};
-    padding-top: calc(${({ theme }) => theme.spacing.xxlarge} + ${({ theme }) => theme.spacing.large}); /* Adjust padding for larger screens */
+    padding-top: calc(${({ theme }) => theme.spacing.xxlarge} + ${({ theme }) => theme.spacing.large});
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+    background-size: 10px 10px;
+    opacity: 0.3;
   }
 `;
 
@@ -129,23 +145,23 @@ const FooterText = styled.p`
   color: ${({ theme }) => theme.colors.footerText};
 `;
 
-const Character = styled.div`
+const Character = styled.img`
   position: absolute;
-  font-size: 150px;
+  width: 150px;
   animation: ${float} 3s infinite;
-  
+
   &:nth-child(1) {
     top: 10%;
     left: 5%;
   }
-  
+
   &:nth-child(2) {
     bottom: 10%;
     right: 5%;
   }
 
   @media (max-width: 768px) {
-    font-size: 100px;
+    width: 100px;
 
     &:nth-child(1) {
       top: 5%;
@@ -159,10 +175,33 @@ const Character = styled.div`
   }
 `;
 
+const Button = styled.a`
+  background: linear-gradient(135deg, #d2b48c, #1e90ff);
+  color: ${({ theme }) => theme.colors.button.text};
+  padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.large};
+  border: none;
+  border-radius: ${({ theme }) => theme.border.radius};
+  font-size: ${({ theme }) => theme.fonts.size.large};
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: ${({ theme }) => theme.spacing.large};
+  transition: background 0.3s;
+
+  &:hover {
+    background: linear-gradient(135deg, #a9a9a9, #4682b4);
+  }
+
+  @media (max-width: 768px) {
+    font-size: ${({ theme }) => theme.fonts.size.medium};
+    padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.medium};
+  }
+`;
+
 const TokenEconomics = () => {
   return (
     <TokenEconomicsContainer>
-      <Character role="img" aria-label="vesticle">🍒</Character>
+      <Character src={footerImg} alt="VASECTOMY Character" />
       <SectionTitle>Token Economics</SectionTitle>
       <SectionSubtitle>The Ultimate in Transparency and Trust</SectionSubtitle>
       <InfoBox>
@@ -179,11 +218,12 @@ const TokenEconomics = () => {
           <InfoText>To be announced</InfoText>
         </InfoItem>
       </InfoBox>
+      <Button href="#">Buy $VASECTOMY</Button>
       <Footer>
-        <FooterText>© 2024 Vesticle Coin. All Rights Reserved.</FooterText>
+        <FooterText>© 2024 VASECTOMY. All Rights Reserved.</FooterText>
         <FooterText>Follow us on: X, Telegram, Reddit</FooterText>
       </Footer>
-      <Character role="img" aria-label="vesticle">🍒</Character>
+      <Character src={footerImg} alt="VASECTOMY Character" />
     </TokenEconomicsContainer>
   );
 };

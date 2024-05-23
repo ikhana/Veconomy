@@ -1,6 +1,7 @@
 // src/components/NavBar.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import logo from '../assets/logo.png'; // Import the actual logo
 
 // Keyframes for animations
 const bounce = keyframes`
@@ -20,10 +21,10 @@ const shake = keyframes`
     transform: translateX(0);
   }
   10%, 30%, 50%, 70%, 90% {
-    transform: translateX(-10px);
+    transform: translateX(-3px);
   }
   20%, 40%, 60%, 80% {
-    transform: translateX(10px);
+    transform: translateX(3px);
   }
 `;
 
@@ -39,20 +40,34 @@ const fall = keyframes`
 `;
 
 const Nav = styled.nav`
-  background: ${({ theme }) => theme.colors.gradient};
+  background: linear-gradient(135deg, #d2b48c 25%, #c3b091 25%, #c3b091 50%, #d2b48c 50%, #d2b48c 75%, #c3b091 75%, #c3b091) 50px 50px,
+              linear-gradient(45deg, #d2b48c 25%, #c3b091 25%, #c3b091 50%, #d2b48c 50%, #d2b48c 75%, #c3b091 75%, #c3b091) 50px 50px,
+              #fff;
+  background-size: 100px 100px;
+  position: relative;
   padding: ${({ theme }) => theme.spacing.large};
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: ${({ theme }) => `${theme.border.width} ${theme.border.style} ${theme.colors.border}`};
   box-shadow: 0 4px 8px ${({ theme }) => theme.colors.shadow};
-  position: relative;
-  z-index: 1000;
 
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
     padding: ${({ theme }) => theme.spacing.medium};
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+    background-size: 10px 10px;
+    opacity: 0.3;
   }
 `;
 
@@ -72,13 +87,23 @@ const Logo = styled.div`
   }
 `;
 
+const LogoImage = styled.img`
+  width: 50px;
+  height: 50px;
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+`;
+
 const Hair = styled.div`
   position: absolute;
   top: -10%;
   left: ${props => props.left}%;
   width: 2px;
   height: 10px;
-  background-color: ${({ theme }) => theme.colors.text};
+  background-color: #ffffff; // White color for hairs resembling sperm
   opacity: 0;
   animation: ${fall} ${props => props.duration}s infinite ${props => props.delay}s;
 `;
@@ -148,7 +173,7 @@ const Button = styled.button`
   font-size: ${({ theme }) => theme.fonts.size.medium};
   cursor: ${({ theme }) => theme.buttons.primary.cursor};
   transition: background-color 0.3s;
-  animation: ${shake} 0.5s infinite;
+  animation: ${shake} 1.5s infinite;
   position: relative;
   overflow: hidden;
 
@@ -183,7 +208,8 @@ const NavBar = () => {
   return (
     <Nav>
       <Logo>
-        <span role="img" aria-label="vesticle">🍒</span> Vesticle Coin
+        <LogoImage src={logo} alt="VASECTOMY Logo" />
+        VASECTOMY
         {[...Array(20)].map((_, i) => (
           <Hair
             key={i}
@@ -255,7 +281,7 @@ const NavBar = () => {
           </Dropdown>
         </NavLink>
         <Button>
-          Snatch Vesticle Now
+          Snatch VASECTOMY Now
           {[...Array(10)].map((_, i) => (
             <Hair
               key={i}

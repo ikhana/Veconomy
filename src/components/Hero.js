@@ -1,6 +1,7 @@
 // src/components/Hero.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import headerImg from '../assets/header.png'; // Import the actual header image
 
 // Keyframes for animations
 const float = keyframes`
@@ -12,15 +13,6 @@ const float = keyframes`
   }
   100% {
     transform: translateY(0);
-  }
-`;
-
-const rotate = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 `;
 
@@ -36,15 +28,19 @@ const fall = keyframes`
 `;
 
 const HeroContainer = styled.div`
-  background: ${({ theme }) => theme.colors.gradient};
+  background: linear-gradient(135deg, #d2b48c 25%, #c3b091 25%, #c3b091 50%, #d2b48c 50%, #d2b48c 75%, #c3b091 75%, #c3b091) 50px 50px,
+              linear-gradient(45deg, #d2b48c 25%, #c3b091 25%, #c3b091 50%, #d2b48c 50%, #d2b48c 75%, #c3b091 75%, #c3b091) 50px 50px,
+              #fff;
+  background-size: 100px 100px;
+  position: relative;
   padding: ${({ theme }) => theme.spacing.xxlarge};
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  position: relative;
   overflow: hidden;
   border-bottom: ${({ theme }) => theme.spacing.large} solid transparent;
+
   &:after {
     content: '';
     position: absolute;
@@ -63,6 +59,18 @@ const HeroContainer = styled.div`
     justify-content: space-between;
     height: 100vh;
   }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+    background-size: 10px 10px;
+    opacity: 0.3;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -70,6 +78,7 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: ${({ theme }) => theme.spacing.large};
   height: 100%;
 
@@ -92,37 +101,39 @@ const CharacterContainer = styled.div`
   }
 `;
 
-const HeroCharacter = styled.div`
-  font-size: 350px; /* Increased size */
-  animation: ${float} 3s infinite, ${rotate} 20s linear infinite;
+const HeroCharacter = styled.img`
+  width: 350px;
+  height: 350px;
+  animation: ${float} 3s infinite;
   justify-self: center;
   transform-origin: center;
   position: relative;
 
   @media (max-width: 768px) {
-    font-size: 250px; /* Increased size */
+    width: 250px;
+    height: 250px;
     margin-bottom: ${({ theme }) => theme.spacing.medium};
   }
 `;
 
 const CircularButtons = styled.div`
   position: absolute;
-  width: 600px; /* Increased size */
-  height: 600px; /* Increased size */
+  width: 600px;
+  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  pointer-events: none; /* Ensures the character can be interacted with */
-  
+  pointer-events: none;
+
   @media (max-width: 768px) {
-    width: 400px; /* Increased size */
-    height: 400px; /* Increased size */
+    width: 400px;
+    height: 400px;
   }
 `;
 
 const Button = styled.a`
-  background-color: ${({ theme }) => theme.colors.button.background};
+  background: linear-gradient(135deg, #d2b48c, #1e90ff);
   color: ${({ theme }) => theme.colors.button.text};
   padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.large};
   border: none;
@@ -133,14 +144,14 @@ const Button = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s;
+  transition: background 0.3s;
   position: absolute;
-  pointer-events: auto; /* Ensures the buttons can be interacted with */
+  pointer-events: auto;
   width: 100px;
   text-align: center;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.button.hover};
+    background: linear-gradient(135deg, #a9a9a9, #4682b4);
   }
 
   @media (max-width: 768px) {
@@ -165,10 +176,10 @@ const HeroTitle = styled.h1`
   font-weight: ${({ theme }) => theme.fonts.weight.bolder};
   color: ${({ theme }) => theme.colors.text};
   margin-bottom: ${({ theme }) => theme.spacing.medium};
-  line-height: 1.2; /* Adjust line height for vertical stacking */
+  line-height: 1.2;
   text-shadow: 2px 2px ${({ theme }) => theme.colors.shadow};
-  text-transform: uppercase; /* Add text transformation */
-  letter-spacing: 2px; /* Add letter spacing */
+  text-transform: uppercase;
+  letter-spacing: 2px;
 
   @media (max-width: 768px) {
     font-size: ${({ theme }) => theme.fonts.size.xlarge};
@@ -180,13 +191,36 @@ const HeroSubtitle = styled.h2`
   font-weight: ${({ theme }) => theme.fonts.weight.bold};
   color: ${({ theme }) => theme.colors.subtitle};
   margin-bottom: ${({ theme }) => theme.spacing.medium};
-  line-height: 1.2; /* Adjust line height for vertical stacking */
+  line-height: 1.2;
   text-shadow: 1px 1px ${({ theme }) => theme.colors.shadow};
-  text-transform: capitalize; /* Add text transformation */
-  letter-spacing: 1px; /* Add letter spacing */
+  text-transform: capitalize;
+  letter-spacing: 1px;
 
   @media (max-width: 768px) {
     font-size: ${({ theme }) => theme.fonts.size.large};
+  }
+`;
+
+const BuyButton = styled.a`
+  background: linear-gradient(135deg, #d2b48c, #1e90ff);
+  color: ${({ theme }) => theme.colors.button.text};
+  padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.large};
+  border: none;
+  border-radius: ${({ theme }) => theme.border.radius};
+  font-size: ${({ theme }) => theme.fonts.size.large};
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: ${({ theme }) => theme.spacing.large};
+  transition: background 0.3s;
+
+  &:hover {
+    background: linear-gradient(135deg, #a9a9a9, #4682b4);
+  }
+
+  @media (max-width: 768px) {
+    font-size: ${({ theme }) => theme.fonts.size.medium};
+    padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.medium};
   }
 `;
 
@@ -196,7 +230,7 @@ const Hair = styled.div`
   left: ${props => props.left}%;
   width: 2px;
   height: 10px;
-  background-color: ${({ theme }) => theme.colors.text};
+  background-color: #ffffff; // White color for hairs resembling sperm
   opacity: 0;
   animation: ${fall} ${props => props.duration}s infinite ${props => props.delay}s;
 `;
@@ -207,13 +241,14 @@ const Hero = () => {
       <TextContainer>
         <HeroTitle>“Because Pulling Out Is for Amateurs”</HeroTitle>
         <HeroSubtitle>“Keeping Your Wallet Fat and Your Balls Empty”</HeroSubtitle>
+        <BuyButton href="#">Buy $VASECTOMY</BuyButton>
       </TextContainer>
       <CharacterContainer>
-        <HeroCharacter role="img" aria-label="vesticle">🍒</HeroCharacter>
+        <HeroCharacter src={headerImg} alt="VASECTOMY Character" />
         <CircularButtons>
           {positions.map((pos, i) => (
             <Button key={i} href="#" style={pos}>
-              {["X", "Telegram", "Buy on Uniswap", "Dex Screener", "Dex Tools", "Base Scan"][i]}
+              {["X", "Telegram", "Uniswap", "Dex Screener", "Dex Tools", "Base Scan"][i]}
             </Button>
           ))}
         </CircularButtons>
