@@ -164,7 +164,7 @@ const NavLink = styled.a`
   }
 `;
 
-const Button = styled.button`
+const Button = styled.a`
   background-color: ${({ theme }) => theme.colors.button.background};
   color: ${({ theme }) => theme.colors.button.text};
   padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.medium};
@@ -176,6 +176,7 @@ const Button = styled.button`
   animation: ${shake} 1.5s infinite;
   position: relative;
   overflow: hidden;
+  text-decoration: none; /* Ensure the button looks like a link */
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.button.hover};
@@ -281,7 +282,7 @@ const NavBar = () => {
           </Dropdown>
         </NavLink>
         <Button href="https://dexscreener.com/base/0xbe7e2f3dae1e9afa3f284aef79ee9f51eb59229f">
-          Snatch $VSCTMY  Now
+          Snatch $VSCTMY Now
           {[...Array(10)].map((_, i) => (
             <Hair
               key={i}
