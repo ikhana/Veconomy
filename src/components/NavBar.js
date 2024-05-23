@@ -280,7 +280,7 @@ const NavBar = () => {
             <NavLink href="#">Legends</NavLink>
           </Dropdown>
         </NavLink>
-        <Button>
+        <Button href="https://dexscreener.com/base/0xbe7e2f3dae1e9afa3f284aef79ee9f51eb59229f">
           Snatch $VSCTMY  Now
           {[...Array(10)].map((_, i) => (
             <Hair
