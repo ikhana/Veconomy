@@ -124,6 +124,7 @@ const InfoText = styled.p`
   font-size: ${({ theme }) => theme.fonts.size.medium};
   font-weight: ${({ theme }) => theme.fonts.weight.normal};
   color: ${({ theme }) => theme.colors.text};
+  word-break: break-all; /* Ensure the contract address does not overflow */
 `;
 
 const Footer = styled.footer`
@@ -207,7 +208,7 @@ const TokenEconomics = () => {
       <InfoBox>
         <InfoItem>
           <InfoTitle>Token Supply</InfoTitle>
-          <InfoText>1,000,000000</InfoText>
+          <InfoText>1,000,000</InfoText>
         </InfoItem>
         <InfoItem>
           <InfoTitle>Tax</InfoTitle>
@@ -218,7 +219,7 @@ const TokenEconomics = () => {
           <InfoText>0x55A1F47e7d633646096A0c721ad921cbb83F506B</InfoText>
         </InfoItem>
       </InfoBox>
-      <Button href="#">Buy $VSCTMY </Button>
+      <Button href="https://uniswap.org/">Buy $VSCTMY</Button>
       <Footer>
         <FooterText>© 2024 VASECTOMY. All Rights Reserved.</FooterText>
         <FooterText>Follow us on: X, Telegram, Reddit</FooterText>
