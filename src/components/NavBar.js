@@ -176,7 +176,8 @@ const Button = styled.a`
   animation: ${shake} 1.5s infinite;
   position: relative;
   overflow: hidden;
-  text-decoration: none; /* Ensure the button looks like a link */
+  text-decoration: none; 
+  z-index: 10;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.button.hover};

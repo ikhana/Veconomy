@@ -176,7 +176,7 @@ const Character = styled.img`
   }
 `;
 
-const Button = styled.a`
+const Button = styled.button`
   background: linear-gradient(135deg, #d2b48c, #1e90ff);
   color: ${({ theme }) => theme.colors.button.text};
   padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.large};
@@ -188,7 +188,7 @@ const Button = styled.a`
   display: inline-block;
   margin-top: ${({ theme }) => theme.spacing.large};
   transition: background 0.3s;
-
+  z-index: 100;
   &:hover {
     background: linear-gradient(135deg, #a9a9a9, #4682b4);
   }
@@ -219,9 +219,9 @@ const TokenEconomics = () => {
           <InfoText>0x55A1F47e7d633646096A0c721ad921cbb83F506B</InfoText>
         </InfoItem>
       </InfoBox>
-     
-      <Footer>
       <Button href="https://uniswap.org/">Buy $VSCTMY</Button>
+      <Footer>
+     
         <FooterText>© 2024 VASECTOMY. All Rights Reserved.</FooterText>
         <FooterText>Follow us on: X, Telegram, Reddit</FooterText>
       </Footer>
