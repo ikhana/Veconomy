@@ -215,10 +215,10 @@ const TokenEconomics = () => {
         </InfoItem>
         <InfoItem>
           <InfoTitle>Contract Address</InfoTitle>
-          <InfoText>To be announced</InfoText>
+          <InfoText>0x55A1F47e7d633646096A0c721ad921cbb83F506B</InfoText>
         </InfoItem>
       </InfoBox>
-      <Button href="#">Buy $VASECTOMY</Button>
+      <Button href="#">Buy $VSCTMY </Button>
       <Footer>
         <FooterText>© 2024 VASECTOMY. All Rights Reserved.</FooterText>
         <FooterText>Follow us on: X, Telegram, Reddit</FooterText>
