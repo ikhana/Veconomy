@@ -281,7 +281,7 @@ const NavBar = () => {
           </Dropdown>
         </NavLink>
         <Button>
-          Snatch VASECTOMY Now
+          Snatch $VSCTMY  Now
           {[...Array(10)].map((_, i) => (
             <Hair
               key={i}

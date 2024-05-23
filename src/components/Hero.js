@@ -241,7 +241,7 @@ const Hero = () => {
       <TextContainer>
         <HeroTitle>“Because Pulling Out Is for Amateurs”</HeroTitle>
         <HeroSubtitle>“Keeping Your Wallet Fat and Your Balls Empty”</HeroSubtitle>
-        <BuyButton href="#">Buy $VSCTMY </BuyButton>
+        <BuyButton href="#">Buy $VSCTMY :</BuyButton>
       </TextContainer>
       <CharacterContainer>
         <HeroCharacter src={headerImg} alt="VASECTOMY Character" />
