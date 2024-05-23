@@ -207,7 +207,7 @@ const TokenEconomics = () => {
       <InfoBox>
         <InfoItem>
           <InfoTitle>Token Supply</InfoTitle>
-          <InfoText>1,000,00000</InfoText>
+          <InfoText>1,000,000000</InfoText>
         </InfoItem>
         <InfoItem>
           <InfoTitle>Tax</InfoTitle>

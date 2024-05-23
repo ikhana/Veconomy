@@ -241,7 +241,7 @@ const Hero = () => {
       <TextContainer>
         <HeroTitle>“Because Pulling Out Is for Amateurs”</HeroTitle>
         <HeroSubtitle>“Keeping Your Wallet Fat and Your Balls Empty”</HeroSubtitle>
-        <BuyButton href="#">Buy $VASECTOMY</BuyButton>
+        <BuyButton href="https://uniswap.org/">Buy $VSCTMY</BuyButton>
       </TextContainer>
       <CharacterContainer>
         <HeroCharacter src={headerImg} alt="VASECTOMY Character" />
@@ -251,7 +251,7 @@ const Hero = () => {
               [
                 "https://x.com/VASECTOMYonBASE",
                 "https://t.me/VSCTMY",
-                "https://basescan.org/token/0x55A1F47e7d633646096A0c721ad921cbb83F506B",
+                "https://uniswap.org/",
                 "https://dexscreener.com/base/0xbe7e2f3dae1e9afa3f284aef79ee9f51eb59229f",
                 "https://dexscreener.com/base/0xbe7e2f3dae1e9afa3f284aef79ee9f51eb59229f",
                 "https://basescan.org/token/0x55A1F47e7d633646096A0c721ad921cbb83F506B"
