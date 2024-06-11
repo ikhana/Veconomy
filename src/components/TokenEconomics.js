@@ -1,7 +1,7 @@
 // src/components/TokenEconomics.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import footerImg from '../assets/footer.png'; // Import the actual footer image
+import footerImg from '../assets/header.png'; // Import the actual footer image
 
 // Keyframes for animations
 const fadeIn = keyframes`
