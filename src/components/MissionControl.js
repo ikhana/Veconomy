@@ -1,7 +1,8 @@
-// src/components/TokenEconomics.js
+// src/components/MissionControl.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import footerImg from '../assets/footer.png'; // Import the actual footer image
+import characterImg from '../assets/header.png'; // Import character image
+import missileImg from '../assets/logo.png'; // Import missile image
 
 // Keyframes for animations
 const fadeIn = keyframes`
@@ -25,7 +26,7 @@ const float = keyframes`
   }
 `;
 
-const TokenEconomicsContainer = styled.div`
+const MissionControlContainer = styled.div`
   background: linear-gradient(135deg, #d2b48c 25%, #c3b091 25%, #c3b091 50%, #d2b48c 50%, #d2b48c 75%, #c3b091 75%, #c3b091) 50px 50px,
               linear-gradient(45deg, #d2b48c 25%, #c3b091 25%, #c3b091 50%, #d2b48c 50%, #d2b48c 75%, #c3b091 75%, #c3b091) 50px 50px,
               #fff;
@@ -126,7 +127,6 @@ const InfoText = styled.p`
   font-size: ${({ theme }) => theme.fonts.size.medium};
   font-weight: ${({ theme }) => theme.fonts.weight.normal};
   color: ${({ theme }) => theme.colors.text};
-  word-break: break-all; /* Ensure the contract address does not overflow */
 `;
 
 const Character = styled.img`
@@ -159,17 +159,47 @@ const Character = styled.img`
   }
 `;
 
+const Missile = styled.img`
+  position: absolute;
+  width: 100px;
+  animation: ${float} 3s infinite;
+
+  &:nth-child(3) {
+    top: 20%;
+    left: 10%;
+  }
+
+  &:nth-child(4) {
+    bottom: 20%;
+    right: 10%;
+  }
+
+  @media (max-width: 768px) {
+    width: 70px;
+
+    &:nth-child(3) {
+      top: 10%;
+      left: 10%;
+    }
+
+    &:nth-child(4) {
+      bottom: 10%;
+      right: 10%;
+    }
+  }
+`;
+
 const Button = styled.a`
   background: linear-gradient(135deg, #d2b48c, #1e90ff);
-  color: ${({ theme }) => theme.colors.button.text};
-  padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.large};
+  color: #fff;
+  padding: 10px 30px;
   border: none;
-  border-radius: ${({ theme }) => theme.border.radius};
-  font-size: ${({ theme }) => theme.fonts.size.large};
+  border-radius: 10px;
+  font-size: 20px;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  margin-top: ${({ theme }) => theme.spacing.large};
+  margin-top: 30px;
   transition: background 0.3s;
   z-index: 100;
   &:hover {
@@ -177,34 +207,36 @@ const Button = styled.a`
   }
 
   @media (max-width: 768px) {
-    font-size: ${({ theme }) => theme.fonts.size.medium};
-    padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.medium};
+    font-size: 18px;
+    padding: 10px 20px;
   }
 `;
 
-const TokenEconomics = () => {
+const MissionControl = () => {
   return (
-    <TokenEconomicsContainer>
-      <Character src={footerImg} alt="TRUMPJONGUN Character" />
-      <SectionTitle>Rocket-Powered Tokenomics</SectionTitle>
-      <SectionSubtitle>Fuel Your Moon Mission</SectionSubtitle>
+    <MissionControlContainer>
+      <Character src={characterImg} alt="TRUMPJONGUN Character" />
+      <Missile src={missileImg} alt="Missile" />
+      <Missile src={missileImg} alt="Missile" />
+      <SectionTitle>Mission Control</SectionTitle>
+      <SectionSubtitle>Join the TrumpJongUn Revolution!</SectionSubtitle>
       <InfoBox>
         <InfoItem>
-          <InfoTitle>Total Supply</InfoTitle>
-          <InfoText>69,420,000,000 (Nice)</InfoText>
+          <InfoTitle>Operation Meme Domination</InfoTitle>
+          <InfoText>Bro, we're gearing up for the ultimate meme warfare. Get your memes locked and loaded!</InfoText>
         </InfoItem>
         <InfoItem>
-          <InfoTitle>Tax</InfoTitle>
-          <InfoText>0% - Because Taxes are for Losers</InfoText>
+          <InfoTitle>Moon Landing Party</InfoTitle>
+          <InfoText>We're not just aiming for the moon, we're throwing a party there. Bring your best memes and let's make history!</InfoText>
         </InfoItem>
         <InfoItem>
-          <InfoTitle>Contract Address</InfoTitle>
-          <InfoText>0x55A1F47e7d633646096A0c721ad921cbb83F506B</InfoText>
+          <InfoTitle>Join the Meme Army</InfoTitle>
+          <InfoText>Suit up, soldier! It's time to enlist in the Meme Army and take over the internet, one meme at a time.</InfoText>
         </InfoItem>
       </InfoBox>
-      <Button href="https://uniswap.org/">Buy $TGUN Now</Button>
-    </TokenEconomicsContainer>
+      <Button href="https://uniswap.org/" target="_blank" rel="noopener noreferrer">Join the Meme Revolution</Button>
+    </MissionControlContainer>
   );
 };
 
-export default TokenEconomics;
+export default MissionControl;

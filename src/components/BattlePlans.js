@@ -1,9 +1,22 @@
-// src/components/TokenEconomics.js
+// src/components/BattlePlans.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import footerImg from '../assets/footer.png'; // Import the actual footer image
+import tankImg from '../assets/logo.png'; // Import tank image
+import explosionImg from '../assets/header.png'; // Import explosion image
 
 // Keyframes for animations
+const float = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -13,30 +26,19 @@ const fadeIn = keyframes`
   }
 `;
 
-const float = keyframes`
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-`;
-
-const TokenEconomicsContainer = styled.div`
+const BattlePlansContainer = styled.div`
   background: linear-gradient(135deg, #d2b48c 25%, #c3b091 25%, #c3b091 50%, #d2b48c 50%, #d2b48c 75%, #c3b091 75%, #c3b091) 50px 50px,
               linear-gradient(45deg, #d2b48c 25%, #c3b091 25%, #c3b091 50%, #d2b48c 50%, #d2b48c 75%, #c3b091 75%, #c3b091) 50px 50px,
               #fff;
   background-size: 100px 100px;
   position: relative;
   padding: ${({ theme }) => theme.spacing.xxlarge};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   overflow: hidden;
   border-top: ${({ theme }) => theme.spacing.large} solid transparent;
-  margin-top: -${({ theme }) => theme.spacing.xxlarge};
-  padding-top: calc(${({ theme }) => theme.spacing.xxlarge} + ${({ theme }) => theme.spacing.large});
 
   &:before {
     content: '';
@@ -47,7 +49,7 @@ const TokenEconomicsContainer = styled.div`
     height: 100px;
     background: ${({ theme }) => theme.colors.gradient};
     border-radius: 50%;
-    box-shadow: 0 -50px 50px ${({ theme }) => theme.colors.background};
+    box-shadow: 0 -${({ theme }) => theme.spacing.large} ${({ theme }) => theme.spacing.large} ${({ theme }) => theme.colors.background};
     z-index: -1;
   }
 
@@ -80,8 +82,8 @@ const SectionTitle = styled.h2`
 `;
 
 const SectionSubtitle = styled.p`
-  font-size: ${({ theme }) => theme.fonts.size.large};
-  font-weight: ${({ theme }) => theme.fonts.weight.normal};
+  font-size: ${({ theme }) => theme.fonts.size.xlarge};
+  font-weight: normal;
   color: ${({ theme }) => theme.colors.text};
   margin-bottom: ${({ theme }) => theme.spacing.xlarge};
   text-shadow: 1px 1px ${({ theme }) => theme.colors.shadow};
@@ -89,10 +91,10 @@ const SectionSubtitle = styled.p`
 
 const InfoBox = styled.div`
   background: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.text};
-  border-radius: ${({ theme }) => theme.border.radius};
-  padding: ${({ theme }) => theme.spacing.large};
-  margin: ${({ theme }) => theme.spacing.medium} auto;
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 20px auto;
   box-shadow: 0 4px 8px ${({ theme }) => theme.colors.shadow};
   max-width: 800px;
   text-align: left;
@@ -106,30 +108,29 @@ const InfoBox = styled.div`
 `;
 
 const InfoItem = styled.div`
-  margin-bottom: ${({ theme }) => theme.spacing.medium};
+  margin-bottom: 20px;
 
   @media (min-width: 768px) {
     margin-bottom: 0;
     flex: 1;
-    padding: 0 ${({ theme }) => theme.spacing.medium};
+    padding: 0 20px;
   }
 `;
 
 const InfoTitle = styled.h3`
   font-size: ${({ theme }) => theme.fonts.size.large};
-  font-weight: ${({ theme }) => theme.fonts.weight.bold};
-  color: ${({ theme }) => theme.colors.subtitle};
-  margin-bottom: ${({ theme }) => theme.spacing.small};
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.accent};
+  margin-bottom: 10px;
 `;
 
 const InfoText = styled.p`
   font-size: ${({ theme }) => theme.fonts.size.medium};
-  font-weight: ${({ theme }) => theme.fonts.weight.normal};
-  color: ${({ theme }) => theme.colors.text};
-  word-break: break-all; /* Ensure the contract address does not overflow */
+  font-weight: normal;
+  color: #fff;
 `;
 
-const Character = styled.img`
+const Tank = styled.img`
   position: absolute;
   width: 150px;
   animation: ${float} 3s infinite;
@@ -159,17 +160,47 @@ const Character = styled.img`
   }
 `;
 
+const Explosion = styled.img`
+  position: absolute;
+  width: 100px;
+  animation: ${float} 3s infinite;
+
+  &:nth-child(3) {
+    top: 20%;
+    left: 10%;
+  }
+
+  &:nth-child(4) {
+    bottom: 20%;
+    right: 10%;
+  }
+
+  @media (max-width: 768px) {
+    width: 70px;
+
+    &:nth-child(3) {
+      top: 10%;
+      left: 10%;
+    }
+
+    &:nth-child(4) {
+      bottom: 10%;
+      right: 10%;
+    }
+  }
+`;
+
 const Button = styled.a`
   background: linear-gradient(135deg, #d2b48c, #1e90ff);
-  color: ${({ theme }) => theme.colors.button.text};
-  padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.large};
+  color: #fff;
+  padding: 10px 30px;
   border: none;
-  border-radius: ${({ theme }) => theme.border.radius};
-  font-size: ${({ theme }) => theme.fonts.size.large};
+  border-radius: 10px;
+  font-size: 20px;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  margin-top: ${({ theme }) => theme.spacing.large};
+  margin-top: 30px;
   transition: background 0.3s;
   z-index: 100;
   &:hover {
@@ -177,34 +208,36 @@ const Button = styled.a`
   }
 
   @media (max-width: 768px) {
-    font-size: ${({ theme }) => theme.fonts.size.medium};
-    padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.medium};
+    font-size: 18px;
+    padding: 10px 20px;
   }
 `;
 
-const TokenEconomics = () => {
+const BattlePlans = () => {
   return (
-    <TokenEconomicsContainer>
-      <Character src={footerImg} alt="TRUMPJONGUN Character" />
-      <SectionTitle>Rocket-Powered Tokenomics</SectionTitle>
-      <SectionSubtitle>Fuel Your Moon Mission</SectionSubtitle>
+    <BattlePlansContainer>
+      <Tank src={tankImg} alt="Tank" />
+      <Explosion src={explosionImg} alt="Explosion" />
+      <Explosion src={explosionImg} alt="Explosion" />
+      <SectionTitle>Battle Plans</SectionTitle>
+      <SectionSubtitle>“Strategize and Conquer!”</SectionSubtitle>
       <InfoBox>
         <InfoItem>
-          <InfoTitle>Total Supply</InfoTitle>
-          <InfoText>69,420,000,000 (Nice)</InfoText>
+          <InfoTitle>Phase 1: Meme Barrage</InfoTitle>
+          <InfoText>“Unleash a relentless barrage of memes to overwhelm the opposition. No mercy!”</InfoText>
         </InfoItem>
         <InfoItem>
-          <InfoTitle>Tax</InfoTitle>
-          <InfoText>0% - Because Taxes are for Losers</InfoText>
+          <InfoTitle>Phase 2: Viral Strike</InfoTitle>
+          <InfoText>“Deploy viral tactics to spread our memes far and wide. Let's make them go viral!”</InfoText>
         </InfoItem>
         <InfoItem>
-          <InfoTitle>Contract Address</InfoTitle>
-          <InfoText>0x55A1F47e7d633646096A0c721ad921cbb83F506B</InfoText>
+          <InfoTitle>Phase 3: Meme Domination</InfoTitle>
+          <InfoText>“Secure our position as the ultimate meme overlords. The internet is our battlefield!”</InfoText>
         </InfoItem>
       </InfoBox>
-      <Button href="https://uniswap.org/">Buy $TGUN Now</Button>
-    </TokenEconomicsContainer>
+      <Button href="https://uniswap.org/" target="_blank" rel="noopener noreferrer">Join the Battle</Button>
+    </BattlePlansContainer>
   );
 };
 
-export default TokenEconomics;
+export default BattlePlans;

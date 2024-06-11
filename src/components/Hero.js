@@ -239,18 +239,18 @@ const Hero = () => {
   return (
     <HeroContainer>
       <TextContainer>
-        <HeroTitle>“Because Pulling Out Is for Amateurs”</HeroTitle>
-        <HeroSubtitle>“Keeping Your Wallet Fat and Your Balls Empty”</HeroSubtitle>
-        <BuyButton href="https://uniswap.org/">Buy $VSCTMY</BuyButton>
+        <HeroTitle>“Because Dictatorship is Hilarious”</HeroTitle>
+        <HeroSubtitle>“Keeping Your Memes Strong and Your Wallet Stronger”</HeroSubtitle>
+        <BuyButton href="https://uniswap.org/">Buy $TGUN</BuyButton>
       </TextContainer>
       <CharacterContainer>
-        <HeroCharacter src={headerImg} alt="VASECTOMY Character" />
+        <HeroCharacter src={headerImg} alt="TRUMPJONGUN Character" />
         <CircularButtons>
           {positions.map((pos, i) => (
             <Button key={i} href={
               [
-                "https://x.com/VASECTOMYonBASE",
-                "https://t.me/VSCTMY",
+                "https://x.com/TRUMPJONGUN",
+                "https://t.me/TRUMPJONGUN",
                 "https://uniswap.org/",
                 "https://dexscreener.com/base/0xbe7e2f3dae1e9afa3f284aef79ee9f51eb59229f",
                 "https://dexscreener.com/base/0xbe7e2f3dae1e9afa3f284aef79ee9f51eb59229f",

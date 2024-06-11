@@ -1,9 +1,9 @@
 // src/components/NavBar.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import logo from '../assets/logo.png'; // Import the actual logo
+import logo from '../assets/logo.png'; 
 
-// Keyframes for animations
+
 const bounce = keyframes`
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
@@ -88,12 +88,12 @@ const Logo = styled.div`
 `;
 
 const LogoImage = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
 
   @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
   }
 `;
 
@@ -210,8 +210,8 @@ const NavBar = () => {
   return (
     <Nav>
       <Logo>
-        <LogoImage src={logo} alt="VASECTOMY Logo" />
-        VASECTOMY
+        <LogoImage src={logo} alt="TRUMPJONGUN Logo" />
+        TRUMPJONGUN
         {[...Array(20)].map((_, i) => (
           <Hair
             key={i}
@@ -223,7 +223,7 @@ const NavBar = () => {
       </Logo>
       <NavLinks>
         <NavLink href="#">
-          Lair
+          Dictator's Den
           {[...Array(10)].map((_, i) => (
             <Hair
               key={i}
@@ -233,12 +233,12 @@ const NavBar = () => {
             />
           ))}
           <Dropdown>
-            <NavLink href="#">Hiding Spots</NavLink>
-            <NavLink href="#">Treasure</NavLink>
+            <NavLink href="#">Secret Bunkers</NavLink>
+            <NavLink href="#">Golden Thrones</NavLink>
           </Dropdown>
         </NavLink>
         <NavLink href="#">
-          Mischief
+          Power Plays
           {[...Array(10)].map((_, i) => (
             <Hair
               key={i}
@@ -248,12 +248,12 @@ const NavBar = () => {
             />
           ))}
           <Dropdown>
-            <NavLink href="#">Pranks</NavLink>
-            <NavLink href="#">Tales</NavLink>
+            <NavLink href="#">Epic Moves</NavLink>
+            <NavLink href="#">Strategies</NavLink>
           </Dropdown>
         </NavLink>
         <NavLink href="#">
-          Stash
+          Nuke Stash
           {[...Array(10)].map((_, i) => (
             <Hair
               key={i}
@@ -263,39 +263,40 @@ const NavBar = () => {
             />
           ))}
           <Dropdown>
-            <NavLink href="#">Goodies</NavLink>
-            <NavLink href="#">Collectibles</NavLink>
-          </Dropdown>
-        </NavLink>
-        <NavLink href="#">
-          Legacy
-          {[...Array(10)].map((_, i) => (
-            <Hair
-              key={i}
-              left={Math.random() * 100}
-              duration={Math.random() * 2 + 2}
-              delay={Math.random() * 5}
-            />
-          ))}
-          <Dropdown>
-            <NavLink href="#">History</NavLink>
-            <NavLink href="#">Legends</NavLink>
-          </Dropdown>
-        </NavLink>
-        <Button href="https://dexscreener.com/base/0xbe7e2f3dae1e9afa3f284aef79ee9f51eb59229f">
-          Snatch $VSCTMY Now
-          {[...Array(10)].map((_, i) => (
-            <Hair
-              key={i}
-              left={Math.random() * 100}
-              duration={Math.random() * 2 + 2}
-              delay={Math.random() * 5}
-            />
-          ))}
-        </Button>
-      </NavLinks>
-    </Nav>
-  );
+  <NavLink href="#">Explosive Memes</NavLink>
+  <NavLink href="#">Nuclear Jokes</NavLink>
+</Dropdown>
+</NavLink>
+<NavLink href="#">
+  Supreme Legacy
+  {[...Array(10)].map((_, i) => (
+    <Hair
+      key={i}
+      left={Math.random() * 100}
+      duration={Math.random() * 2 + 2}
+      delay={Math.random() * 5}
+    />
+  ))}
+  <Dropdown>
+    <NavLink href="#">Historical Feats</NavLink>
+    <NavLink href="#">Legendary Rants</NavLink>
+  </Dropdown>
+</NavLink>
+<Button href="https://dexscreener.com/base/0xbe7e2f3dae1e9afa3f284aef79ee9f51eb59229f">
+  Snatch $TGUN Now
+  {[...Array(10)].map((_, i) => (
+    <Hair
+      key={i}
+      left={Math.random() * 100}
+      duration={Math.random() * 2 + 2}
+      delay={Math.random() * 5}
+    />
+  ))}
+</Button>
+</NavLinks>
+</Nav>
+);
 };
 
 export default NavBar;
+
