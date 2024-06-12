@@ -1,7 +1,7 @@
 // src/components/Hero.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import headerImg from '../assets/logo.png'; // Import the actual header image
+import headerImg from '../assets/missile.png'; // Import the actual header image
 
 // Keyframes for animations
 const float = keyframes`

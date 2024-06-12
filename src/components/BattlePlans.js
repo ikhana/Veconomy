@@ -1,7 +1,7 @@
 // src/components/BattlePlans.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import tankImg from '../assets/logo.png'; // Import tank image
+import tankImg from '../assets/battle.png'; // Import tank image
 import explosionImg from '../assets/header.png'; // Import explosion image
 
 // Keyframes for animations
@@ -132,7 +132,7 @@ const InfoText = styled.p`
 
 const Tank = styled.img`
   position: absolute;
-  width: 150px;
+  width: 400px;
   animation: ${float} 3s infinite;
 
   &:nth-child(1) {
@@ -217,7 +217,7 @@ const BattlePlans = () => {
   return (
     <BattlePlansContainer>
       <Tank src={tankImg} alt="Tank" />
-      <Explosion src={explosionImg} alt="Explosion" />
+     
       <Explosion src={explosionImg} alt="Explosion" />
       <SectionTitle>Battle Plans</SectionTitle>
       <SectionSubtitle>“Strategize and Conquer!”</SectionSubtitle>

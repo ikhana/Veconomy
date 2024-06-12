@@ -1,7 +1,7 @@
 // src/components/MissionControl.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import characterImg from '../assets/header.png'; // Import character image
+import characterImg from '../assets/tank.png'; // Import character image
 import missileImg from '../assets/logo.png'; // Import missile image
 
 // Keyframes for animations
@@ -131,7 +131,7 @@ const InfoText = styled.p`
 
 const Character = styled.img`
   position: absolute;
-  width: 150px;
+  width: 300px;
   animation: ${float} 3s infinite;
 
   &:nth-child(1) {
@@ -216,7 +216,7 @@ const MissionControl = () => {
   return (
     <MissionControlContainer>
       <Character src={characterImg} alt="TRUMPJONGUN Character" />
-      <Missile src={missileImg} alt="Missile" />
+    
       <Missile src={missileImg} alt="Missile" />
       <SectionTitle>Mission Control</SectionTitle>
       <SectionSubtitle>Join the TrumpJongUn Revolution!</SectionSubtitle>

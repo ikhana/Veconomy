@@ -1,7 +1,7 @@
 // src/components/TokenEconomics.js
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import footerImg from '../assets/header.png'; // Import the actual footer image
+import footerImg from '../assets/smilerocket.png'; // Import the actual footer image
 
 // Keyframes for animations
 const fadeIn = keyframes`
@@ -131,7 +131,7 @@ const InfoText = styled.p`
 
 const Character = styled.img`
   position: absolute;
-  width: 150px;
+  width: 300px;
   animation: ${float} 3s infinite;
 
   &:nth-child(1) {
